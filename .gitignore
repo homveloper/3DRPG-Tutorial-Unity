@@ -2,6 +2,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/unity,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=unity,visualstudiocode
 
+.DS_Store
+
 ### Unity ###
 # This .gitignore file should be placed at the root of your Unity project directory
 #
