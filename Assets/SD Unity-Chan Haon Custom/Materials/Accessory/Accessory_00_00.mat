@@ -8,10 +8,10 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Accessory_00_00
-  m_Shader: {fileID: 4800000, guid: af8454e09b3a41448a4140e792059446, type: 3}
+  m_Shader: {fileID: 4800000, guid: ca035891872022e4f80c952b3916e450, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ShaderKeywords: _EMISSIVE_SIMPLE
+  m_ShaderKeywords: _EMISSIVE_SIMPLE _OUTLINE_NML
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -140,7 +140,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _1st2nd_Shades_Feather: 0.0001
+    - _1st2nd_Shades_Feather: 0.109
     - _1st_ShadeColor_Feather: 0.306
     - _1st_ShadeColor_Step: 0.422
     - _2nd_ShadeColor_Feather: 0.109
@@ -148,8 +148,8 @@ Material:
     - _Add_Antipodean_RimLight: 0
     - _Ap_RimLight_FeatherOff: 0
     - _Ap_RimLight_Power: 0.1
-    - _BaseColor_Step: 0.5
-    - _BaseShade_Feather: 0.0001
+    - _BaseColor_Step: 0.422
+    - _BaseShade_Feather: 0.306
     - _Base_Speed: 0
     - _BlurLevelMatcap: 0
     - _BlurLevelSGM: 0
@@ -185,6 +185,7 @@ Material:
     - _Is_LightColor_Base: 1
     - _Is_LightColor_HighColor: 1
     - _Is_LightColor_MatCap: 1
+    - _Is_LightColor_Outline: 1
     - _Is_LightColor_RimLight: 1
     - _Is_NormalMapForMatCap: 0
     - _Is_NormalMapToBase: 0
@@ -220,7 +221,7 @@ Material:
     - _Scroll_EmissiveU: 0
     - _Scroll_EmissiveV: 0
     - _Set_SystemShadowsToBase: 1
-    - _ShadeColor_Step: 0
+    - _ShadeColor_Step: 0.127
     - _SrcBlend: 1
     - _StepOffset: -0.021
     - _TweakHighColorOnShadow: 0
@@ -240,13 +241,13 @@ Material:
     - _ZWrite: 1
     - _simpleUI: 0
     - _utsTechnique: 1
-    - _utsVersion: 2.06
+    - _utsVersion: 2.075
     m_Colors:
     - _1st_ShadeColor: {r: 0.74308336, g: 0.6000801, b: 0.8773585, a: 1}
     - _2nd_ShadeColor: {r: 0.39288896, g: 0.48700324, b: 0.764151, a: 1}
     - _Ap_RimLightColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.7647059, g: 0.7647059, b: 0.7647059, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorShift: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emissive_Color: {r: 0, g: 0, b: 0, a: 1}
