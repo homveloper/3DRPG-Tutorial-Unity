@@ -19,4 +19,14 @@ public class MovePositionNavMesh : MonoBehaviour, IMovePosition
     {
         agent.isStopped = condition;
     }
+
+    public Vector3 GetVelocity()
+    {
+        return transform.InverseTransformDirection(agent.velocity);
+    }
+
+    public float GetMaxMoveSpeed()
+    {
+        return agent.speed;
+    }
 }
