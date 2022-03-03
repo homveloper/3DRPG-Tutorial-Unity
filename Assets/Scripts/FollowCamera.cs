@@ -6,7 +6,7 @@ public class FollowCamera : MonoBehaviour
 {
     [SerializeField] private Transform target;
     [Range(0f,1f)][SerializeField] private float smoothSpeed = 0.125f;    
-    [SerializeField] Vector3 offset;
+    [SerializeField] private Vector3 offset;
 
     private void LateUpdate() {
         Vector3 desiredPosition = target.position + offset;
