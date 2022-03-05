@@ -53,6 +53,21 @@ namespace SD.Utility
 
             return Vector3.zero;
         }
+
+
+        public static Ray GetScreenPointToRay()
+        {
+            return GetScreenPointToRay(Camera.main, Input.mousePosition);
+        }
+        public static Ray GetScreenPointToRay(Camera worldCamera, Vector3 position)
+        {
+            return worldCamera.ScreenPointToRay(position);
+        }
+
+        public static RaycastHit[] GetRaycastAll()
+        {
+            return Physics.RaycastAll(GetScreenPointToRay());
+        }
     }
 }
 
