@@ -12,14 +12,16 @@ namespace SD.Inputs
 
         private void Update()
         {
-            if(Input.GetButtonDown("Primary")){
+            if(Input.GetButton("Primary")){
                 OnPrimary();
             }
 
-            if (Input.GetButtonDown("Secondary"))
+            if (Input.GetButton("Secondary"))
             {
                 Vector3 worldPosition = Functional.GetMouseWorldPosition3D(true);
-                GetComponent<IMovePosition>()?.SetMovePosition(worldPosition);
+                if(worldPosition != Vector3.zero){
+                    GetComponent<IMovePosition>()?.SetMovePosition(worldPosition);
+                }
                 OnSecondary();
             }
         }
