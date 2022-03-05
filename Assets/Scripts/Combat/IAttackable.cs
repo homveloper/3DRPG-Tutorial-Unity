@@ -3,7 +3,7 @@ namespace SD.Combat
 {
     public interface IAttackable
     {
-        public void Attack();
+        public void Attack(Target target);
     }
 
 }
