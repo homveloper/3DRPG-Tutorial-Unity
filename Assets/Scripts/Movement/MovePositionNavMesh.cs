@@ -1,10 +1,10 @@
+using SD.Core.Action;
 using UnityEngine;
 using UnityEngine.AI;
 
-
 namespace SD.Movement
 {
-    public class MovePositionNavMesh : MonoBehaviour, IMovePosition
+    public class MovePositionNavMesh : MonoBehaviour, IMovePosition, IAction
     {
         private NavMeshAgent agent;
 
@@ -15,11 +15,12 @@ namespace SD.Movement
 
         public void SetMovePosition(Vector3 movePosition)
         {
+            GetComponent<ActionScheduler>().ChangeAction(this);
             agent.SetDestination(movePosition);
             Stop(false);
         }
 
-        public void Stop(bool condition)
+        public void Stop(bool condition = true)
         {
             agent.isStopped = condition;
         }
@@ -32,6 +33,11 @@ namespace SD.Movement
         public float GetMaxMoveSpeed()
         {
             return agent.speed;
+        }
+
+        public void Cancel()
+        {
+            Stop();
         }
     }
 }
