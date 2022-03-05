@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace HomVeloper.Utiltiy
+namespace SD.Utility
 {
     public class Functional
     {
@@ -30,6 +30,24 @@ namespace HomVeloper.Utiltiy
                 Debug.DrawRay(ray.origin, ray.direction * 1000f, Color.green);
             
             if(Physics.Raycast(ray, out hit)){
+                return hit.point;
+            }
+
+            return Vector3.zero;
+        }
+
+        public static Vector3 GetMouseWorldPosition3D(int layerMask){
+            return GetMouseWorldPosition3D(layerMask);
+        }
+
+        public static Vector3 GetMouseWorldPosition3D(int layerMask, bool debug=false){
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if(debug)
+                Debug.DrawRay(ray.origin, ray.direction * 1000f, Color.green);
+            
+            if(Physics.Raycast(ray, out hit, 1000f, layerMask)){
                 return hit.point;
             }
 

@@ -1,5 +1,7 @@
 using UnityEngine;
 
+namespace SD.Movement{
+
 public interface IMovePosition
 {
     public void SetMovePosition(Vector3 movePosition);
@@ -7,3 +9,6 @@ public interface IMovePosition
     public Vector3 GetVelocity();
     public float GetMaxMoveSpeed();
 }
+
+}
+

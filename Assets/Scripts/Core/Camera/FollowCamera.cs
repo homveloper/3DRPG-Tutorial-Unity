@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace SD.Core.Camera
+{
+
 public class FollowCamera : MonoBehaviour
 {
     [SerializeField] private Transform target;
@@ -14,4 +17,7 @@ public class FollowCamera : MonoBehaviour
         transform.position = smoothedPosition;
         transform.LookAt(target);
     }
+}
+
+
 }

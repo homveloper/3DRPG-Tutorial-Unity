@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SD.Movement;
 
 public class Locomotion : StateMachineBehaviour
 {
@@ -27,6 +28,9 @@ public class Locomotion : StateMachineBehaviour
     // Return scaled move speed by 0 ~ 1
     private float GetScaledMoveSpeed(Animator animator){
         IMovePosition movePosition = animator.GetComponentInParent<IMovePosition>();
-        return movePosition.GetVelocity().z / movePosition.GetMaxMoveSpeed();
+        if(movePosition != null)
+            return movePosition.GetVelocity().z / movePosition.GetMaxMoveSpeed();
+        
+        return 0;
     }
 }
