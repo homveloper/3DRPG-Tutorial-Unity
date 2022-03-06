@@ -15,7 +15,7 @@ namespace SD.Movement
 
         public void SetMovePosition(Vector3 movePosition)
         {
-            GetComponent<ActionScheduler>().ChangeAction(this);
+            GetComponent<ActionScheduler>()?.ChangeAction(this);
             agent.SetDestination(movePosition);
             Stop(false);
         }

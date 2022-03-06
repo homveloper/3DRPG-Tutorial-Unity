@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 9200378475576059604}
   - component: {fileID: 9200378475576059607}
   - component: {fileID: 9200378475576059606}
-  - component: {fileID: 9200378475576059593}
+  - component: {fileID: 4268804948949545234}
+  - component: {fileID: -2083354621449024564}
+  - component: {fileID: 191199277638931312}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -33,7 +35,7 @@ Transform:
   m_Children:
   - {fileID: 5394600579985855124}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &9200378475576059607
 NavMeshAgent:
@@ -69,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c61eab572b9e43849c39e0e15c0a27a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &9200378475576059593
+--- !u!114 &4268804948949545234
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -78,7 +80,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 9200378475576059592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b009443752b59437f94ad2addab19ac9, type: 3}
+  m_Script: {fileID: 11500000, guid: ba888f8879f114a799e4ddae1963b2f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2083354621449024564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9200378475576059592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb2764bcf0c384c6b9655591e323cfe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 2
+--- !u!114 &191199277638931312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9200378475576059592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e83a4a076d1146acb91a190f7cd11f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &9200378474470533721

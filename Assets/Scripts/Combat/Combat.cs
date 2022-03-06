@@ -21,11 +21,16 @@ namespace SD.Combat
             if (target == null) return;
             if (GetIsInRange())
             {
-                GetComponent<ActionScheduler>().ChangeAction(this);
                 Attack(target);
-            }else{
-                GetComponent<IMovePosition>().SetMovePosition(target.transform.position);
+            }else
+            {
+                MoveTo(target.transform.position);
             }
+        }
+
+        private void MoveTo(Vector3 position)
+        {
+            GetComponent<IMovePosition>().SetMovePosition(position);
         }
 
         private bool GetIsInRange()
@@ -35,6 +40,8 @@ namespace SD.Combat
 
         public void Attack(Target target)
         {
+            GetComponent<ActionScheduler>()?.ChangeAction(this);
+            GetComponentInChildren<Animator>().SetTrigger("attack");
 
         }
 
