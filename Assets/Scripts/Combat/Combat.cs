@@ -17,7 +17,11 @@ namespace SD.Combat
         private float lastAttackTime = 0f;
 
         private void Awake() {
-            GetComponent<MouseInput>().OnPrimary += FindTarget;
+            MouseInput mouseInput;
+            if(TryGetComponent<MouseInput>(out mouseInput))
+            {
+                mouseInput.OnPrimary += FindTarget;
+            }
         }
 
         private void Update()
@@ -56,8 +60,8 @@ namespace SD.Combat
         {
             transform.LookAt(this.target.GetTransform());
             GetComponent<ActionScheduler>()?.ChangeAction(this);
-            GetComponentInChildren<Animator>().ResetTrigger("stopAttack");
-            GetComponentInChildren<Animator>().SetTrigger("attack");
+            GetComponent<Animator>()?.ResetTrigger("stopAttack");
+            GetComponent<Animator>()?.SetTrigger("attack");
             lastAttackTime = Time.time + attackPerSecond;
         }
 
@@ -75,6 +79,7 @@ namespace SD.Combat
                 {
                     if(!CanAttack(target)) continue;
                     SetTarget(target);
+                    Debug.Log(target);
                     break;
                 }
             }
