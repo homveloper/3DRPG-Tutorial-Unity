@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SD.Movement;
 
 namespace SD.Combat
 {
@@ -27,6 +28,7 @@ namespace SD.Combat
         private void OnDie()
         {
             GetComponentInChildren<Animator>()?.SetTrigger("die");
+            GetComponent<IMovePosition>()?.SetControl(false);
             isDead = true;
         }
 
