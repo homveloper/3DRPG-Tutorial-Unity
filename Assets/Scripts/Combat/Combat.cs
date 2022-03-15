@@ -8,9 +8,13 @@ namespace SD.Combat
 {
     public class Combat : MonoBehaviour, IAttackable,IAction
     {
-        Target target;
+        IDamage target;
 
         [SerializeField] float attackRange = 2f;
+        [SerializeField] float attackPerSecond = 1f;
+        [SerializeField] float attackDamage = 1f;
+
+        private float lastAttackTime = 0f;
 
         private void Awake() {
             GetComponent<MouseInput>().OnPrimary += FindTarget;
@@ -19,13 +23,23 @@ namespace SD.Combat
         private void Update()
         {
             if (target == null) return;
+            if (target.IsDead()) return;
+
             if (GetIsInRange())
             {
-                Attack(target);
+                if(IsCooltimeEnd())
+                {
+                    Attack(target);
+                }
             }else
             {
-                MoveTo(target.transform.position);
+                MoveTo(target.GetPosition());
             }
+        }
+
+        private bool IsCooltimeEnd()
+        {
+            return Time.time > lastAttackTime;
         }
 
         private void MoveTo(Vector3 position)
@@ -35,32 +49,53 @@ namespace SD.Combat
 
         private bool GetIsInRange()
         {
-            return Vector3.Distance(transform.position, target.transform.position) < attackRange;
+            return Vector3.Distance(transform.position, target.GetPosition()) < attackRange;
         }
 
-        public void Attack(Target target)
+        public void Attack(IDamage target)
         {
+            transform.LookAt(this.target.GetTransform());
             GetComponent<ActionScheduler>()?.ChangeAction(this);
+            GetComponentInChildren<Animator>().ResetTrigger("stopAttack");
             GetComponentInChildren<Animator>().SetTrigger("attack");
+            lastAttackTime = Time.time + attackPerSecond;
+        }
 
+        public void SetTarget(IDamage target)
+        {
+            this.target = target;
         }
 
         private void FindTarget()
         {
             RaycastHit[] hits = Functional.GetRaycastAll();
             foreach(RaycastHit hit in hits){
-                Target target;
-
-                if(hit.collider.TryGetComponent<Target>(out target))
+                IDamage target;
+                if(hit.collider.TryGetComponent<IDamage>(out target))
                 {
-                    this.target = target;
+                    if(!CanAttack(target)) continue;
+                    SetTarget(target);
+                    break;
                 }
             }
         }
 
         public void Cancel()
         {
+            GetComponentInChildren<Animator>().ResetTrigger("attack");
+            GetComponentInChildren<Animator>().SetTrigger("stopAttack");
             this.target = null;
+        }
+
+        public bool CanAttack(IDamage target)
+        {
+            return target != null && !target.IsDead();
+        }
+
+        // Animation Event Receiver
+        private void Hit()
+        {
+            target.TakeDamage(attackDamage); 
         }
     }
 }

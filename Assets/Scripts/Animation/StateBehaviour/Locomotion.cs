@@ -13,7 +13,7 @@ namespace SD.Animation.StateBehaviour
         // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
         override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            
+
         }
 
         // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -31,9 +31,12 @@ namespace SD.Animation.StateBehaviour
         // Return scaled move speed by 0 ~ 1
         private float GetScaledMoveSpeed(Animator animator)
         {
-            IMovePosition movePosition = animator.GetComponentInParent<IMovePosition>();
-            if (movePosition != null)
+            IMovePosition movePosition;
+
+            if (animator.TryGetComponent<IMovePosition>(out movePosition))
+            {
                 return movePosition.GetVelocity().z / movePosition.GetMaxMoveSpeed();
+            }
 
             return 0;
         }
