@@ -79,7 +79,6 @@ namespace SD.Combat
                 {
                     if(!CanAttack(target)) continue;
                     SetTarget(target);
-                    Debug.Log(target);
                     break;
                 }
             }
