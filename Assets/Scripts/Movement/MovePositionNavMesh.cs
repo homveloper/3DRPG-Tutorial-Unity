@@ -7,6 +7,7 @@ namespace SD.Movement
     public class MovePositionNavMesh : MonoBehaviour, IMovePosition, IAction
     {
         private NavMeshAgent agent;
+        private bool canControl = true;
 
         private void Awake()
         {
@@ -15,6 +16,8 @@ namespace SD.Movement
 
         public void SetMovePosition(Vector3 movePosition)
         {
+            if(!canControl) return;
+
             GetComponent<ActionScheduler>()?.ChangeAction(this);
             agent.SetDestination(movePosition);
             Stop(false);
@@ -38,6 +41,11 @@ namespace SD.Movement
         public void Cancel()
         {
             Stop();
+        }
+
+        public void SetControl(bool condition)
+        {
+            canControl = condition;
         }
     }
 }
