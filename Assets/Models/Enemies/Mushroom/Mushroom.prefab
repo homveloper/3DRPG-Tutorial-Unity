@@ -489,7 +489,8 @@ GameObject:
   - component: {fileID: 5928737067653022897}
   - component: {fileID: -9019107594027011759}
   - component: {fileID: 7091701605409788137}
-  - component: {fileID: -5674932574788362932}
+  - component: {fileID: 2766958461784174470}
+  - component: {fileID: 2661058273072091795}
   m_Layer: 0
   m_Name: Mushroom
   m_TagString: Untagged
@@ -588,12 +589,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 49664409928230331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1152328d94d984b46892443749af03a3, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ead1bf39ba6849208d2a3f03896d4ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chaseDistance: 5
-  stopDistance: 1
-  drawDebug: 0
+  health: 10
 --- !u!114 &-9019107594027011759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -603,10 +602,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 49664409928230331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0ea5a4bd8d374f559ef0001dbc2b0b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e83a4a076d1146acb91a190f7cd11f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
 --- !u!114 &7091701605409788137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,7 +620,21 @@ MonoBehaviour:
   attackRange: 1
   attackPerSecond: 1
   attackDamage: 1
---- !u!114 &-5674932574788362932
+--- !u!136 &2766958461784174470
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49664409928230331}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.35
+  m_Height: 0.68
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &2661058273072091795
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -631,9 +643,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 49664409928230331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8570ba240226742a2884dedb5e01a2ad, type: 3}
+  m_Script: {fileID: 11500000, guid: d4132ca2deed040c6a1792b5f7d67239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chaseDistance: 5
+  stopDistance: 1
+  drawDebug: 0
 --- !u!1 &49664409928230333
 GameObject:
   m_ObjectHideFlags: 0
