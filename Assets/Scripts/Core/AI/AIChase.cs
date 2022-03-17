@@ -46,6 +46,9 @@ namespace SD.AI
         {
             GetComponent<IMovePosition>().Stop();
         }
+
+        void DrawDebug()
+        {
+        }
     }
 
-}
