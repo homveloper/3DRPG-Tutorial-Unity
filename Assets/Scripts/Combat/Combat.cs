@@ -14,7 +14,7 @@ namespace SD.Combat
         [SerializeField] float attackPerSecond = 1f;
         [SerializeField] float attackDamage = 1f;
 
-        private float lastAttackTime = 0f;
+        private float lastAttackTime = 0;
 
         private void Awake() {
             MouseInput mouseInput;

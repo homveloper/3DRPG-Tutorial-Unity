@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SD.Movement;
+using SD.Combat;
+using SD.Core.Action;
 
-namespace SD.Combat
+namespace SD.Core
 {
     public class Health : MonoBehaviour, IDamage
     {
@@ -28,6 +30,7 @@ namespace SD.Combat
         private void OnDie()
         {
             GetComponentInChildren<Animator>()?.SetTrigger("die");
+            GetComponent<ActionScheduler>()?.CancelCurrentAction();
             GetComponent<IMovePosition>()?.SetControl(false);
             isDead = true;
         }
