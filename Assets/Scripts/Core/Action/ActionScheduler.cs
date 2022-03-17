@@ -4,14 +4,18 @@ namespace SD.Core.Action
 {
     public class ActionScheduler : MonoBehaviour
     {
-        IAction currentAction;
+        [SerializeField] private IAction currentAction;
 
         public void ChangeAction(IAction action)
         {
             if (currentAction == action) return;
-            Debug.Log(currentAction);
             currentAction?.Cancel();
             currentAction = action;
+        }
+
+        public void CancelCurrentAction()
+        {
+            ChangeAction(null);
         }
     }
 }
